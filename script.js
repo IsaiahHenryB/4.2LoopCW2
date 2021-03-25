@@ -72,4 +72,30 @@
 //     }
 // }
 // loop8(16)
+const checkPangram =(param) =>{
+    param = param.toLowerCase()
+    let alpha = "abcdefghijklmnopqrstuvwxyz"
+    let usedNum = alpha.length-1;
+    
+    for(let num of alpha){
+        for(let i=0; i<=param.length;i++){
+            if(param[i] === alpha[usedNum] && usedNum >= 0){
+                usedNum--;
+            }
+        }
+    }
+
+    if(usedNum === -1){
+        return true
+    }
+    return false
+}
+
+console.log(checkPangram("The five boxing wizards jump quickly."))
+console.log(checkPangram("The five boxing wizards jump backwards."))
+console.log(checkPangram("Pack my box with five dozen liquor jugs."))
+console.log(checkPangram("Punch the box with five dozen liquor mugs."))
+console.log(checkPangram("ewqrtyuiopasdghjkfgdacxzvbmzxcnbvmasdghjfklqweutyr"))
+console.log(checkPangram("ewqrtyuiopsdghjkfgdcxzvbmzxcnbvmsdghjfklqweutyr"))
+// Removed The a's
 
